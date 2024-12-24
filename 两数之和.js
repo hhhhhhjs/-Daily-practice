@@ -6,7 +6,6 @@ const twoNumbersAdd = (nums, target) => {
             return [map.get(diff), i]
         }
         map.set(nums[i], i)
-        console.log(map)
     }
     return []
 }
