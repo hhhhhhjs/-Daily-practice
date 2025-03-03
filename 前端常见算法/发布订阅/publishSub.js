@@ -21,9 +21,20 @@ class EventBus {
             })
         }
     }
+
+    // 取消订阅
+    off(eventName, callback){
+        if(this.events[eventName]){
+            this.events[eventName] = this.events[eventName].filter((cb) => {
+                return cb !== callback
+            })
+        }
+        // 检查数组是否为空，如果为空，删除该事件
+        if(this.events[eventName] === 0){
+            delete this.events[eventName]
+        }
+    }
 }
-
-
 // 使用示例 
 const eventbus = new EventBus()
 module.exports = eventbus
