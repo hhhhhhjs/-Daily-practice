@@ -4,6 +4,7 @@ function debounce(fn, delay){
     return function(...args) {
         // 如果再次调用函数,需要先清除计时器
         clearTimeout(timer)
+        // 如果不使用 apply 显示绑定, setTimeout 默认会绑定全局的 this,如果 setTimeout 的回调是箭头函数,那么不会出现这种情况
         timer = setTimeout(() => {
             fn.apply(this, args)
         }, delay);
