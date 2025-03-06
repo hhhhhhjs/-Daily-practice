@@ -29,7 +29,7 @@ function testfn(value){
     console.log(this)
     console.log(`来封装一下${value} 吧`)
 }
-
 testfn.call(obj,'call')
+
 // 使用自己的 call
 testfn.mycall(obj,'call')

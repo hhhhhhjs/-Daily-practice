@@ -16,6 +16,7 @@ const hasCycle = (head) => {
     }
     let slow = head
     let fast = head
+    // 使用快指针作为判断依据，因为快指针一次移动两步，可能会访问到 node为 null 的下一个节点，导致程序崩溃
     while(fast && fast.next){
         // 慢指针一次移动一步，快指针一次移动两步，如果两个指针相遇，那么说明该链表有环
         slow = slow.next

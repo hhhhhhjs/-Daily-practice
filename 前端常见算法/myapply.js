@@ -6,7 +6,6 @@
  *  函数中的 this 在非严格模式下指向全局或者 window ,在严格模式下指向 undefined
  */
 
-'use strict'
 function myapply(context, args) {
   // 确保 context 有值，如果不是 undefined 或者 null 使用 context, 否则指向 window
   // 利用 js 中短路的 或 的特性，如果 true 则直接返回 context，如果 false 则返回后面的 window

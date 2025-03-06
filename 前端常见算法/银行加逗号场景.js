@@ -5,6 +5,8 @@ const bank = (number) => {
     // }
     let result = ''
     for(let i = money.length - 1, j = 0; i >= 0; i--, j++){
+        // 排除 j = 0 的情况
+        // 当 3 能被 j 整除时，说明此时 i 已经遍历了四个元素，在这个元素遍历时，先加上逗号，然后再处理下面的逻辑
         if(j > 0 && j % 3 === 0){
             result = ',' + result
         }

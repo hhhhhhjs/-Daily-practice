@@ -60,14 +60,21 @@ clone.name = 'structured'
 const messagechannel = (obj) => {
     return new Promise((resolve) => {
         const { port1, port2 } = new MessageChannel()
+        port1.postMessage(obj)
         port2.onmessage = (mes) => {
             resolve(mes.data)
         }
-        port1.postMessage(obj)
     })
 }
 
+// 如果在这里直接修改 obj ，最后会看到两个对象都被改变了，原因是现在还没有调用 messagechannel 函数，
+// 所以在当调用了 messagechannel 函数之后，这个函数会将新的 obj 作为目标源进行克隆
 
+
+// 这里由于是异步任务，所以只能在 then 里面修改，即可看到深拷贝的结果，如果在这段函数下面打印 obj ,还是原来的 数据
 messagechannel(obj).then((res) => {
+    obj.name = '在这里再改变'
+    console.log(obj)
+    res.name = '嘻嘻'
     console.log(res)
 })
