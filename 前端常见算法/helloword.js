@@ -5,6 +5,6 @@ const reversestr = (str) => {
         const distArr = newstr.split('').reverse().join('')
         tempArr[i] = distArr
     }
-    return tempArr.reverse()
+    return tempArr.reverse().join(' ')
 }
 console.log(reversestr('hello world'))
