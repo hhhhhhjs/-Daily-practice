@@ -11,6 +11,7 @@ const engthOfLongestSubstring = (s) => {
     for(let right = 0; right < s.length; right++){
         // 如果当前字符存在于 charmap 中并且 索引大于等于 left 则说明这个元素在此滑动窗口中重复，需要更新左边界
         const currentchar = s[right]
+        // 注意这里是从 map 中取出来的
         if(charmap.has(currentchar) && charmap.get(currentchar) >= left){
             // 更新左边界
             left = charmap.get(currentchar) + 1
